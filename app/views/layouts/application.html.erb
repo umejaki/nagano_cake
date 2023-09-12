@@ -39,18 +39,22 @@
             </li>
             <% else %>
             <li class="nav-item">
-              <p>About</p>
+               <%= link_to about_path, class: 'nav-link text-dark' do %>
+                 About
+               <% end %>
             </li>
             <li class="nav-item">
               <p>商品一覧</p>
             </li>
             <li class="nav-item">
-              <p>ログアウト</p>
-            <li class="nav-item">
-              <p>新規登録</p>
+               <%= link_to new_customer_registration_path, class: 'nav-link text-dark' do %>
+                  新規登録
+               <% end %>
             </li>
             <li class="nav-item">
-              <p>ログイン</p>
+                <%= link_to customer_session_path, class: 'nav-link text-dark' do %>
+                   ログイン
+                <% end %>
             </li>
             <% end %>
             </ul>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: "homes#top"
+  get "/about" => "homes#about", as: "about"
  # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers, skip: [:passwords], controllers: {
@@ -15,5 +17,10 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
   
   scope module: :public do
     get '/customers' => 'customers#show'
+  end
+
+  scope module: :admin do
+    get 'admin/items/new' => 'items#new'
+    get 'admin/items/new' => 'items#create'
   end
 end
