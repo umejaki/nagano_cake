@@ -19,8 +19,7 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
     get '/customers' => 'customers#show'
   end
 
-  scope module: :admin do
-    get 'admin/items/new' => 'items#new'
-    get 'admin/items/new' => 'items#create'
+  namespace :admin do
+    resources :items
   end
 end

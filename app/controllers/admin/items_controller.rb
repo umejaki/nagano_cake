@@ -5,12 +5,17 @@ class Admin::ItemsController < ApplicationController
   
    def create
     @item = Item.new(item_params)
-    @pitem.save
+    @item.save
+   end
+   
+   def index
+    
+    @item = Item.page(params[:page])
    end
   
   private
-    def itemes_params
-      params.require(:item).permit(:image)
+    def iteme_params
+      params.require(:item).permit(:image, :title, :body)
     end
   
 end
