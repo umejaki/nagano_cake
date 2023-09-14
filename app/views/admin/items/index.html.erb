@@ -6,18 +6,18 @@
     <th>商品ID</th>
     <th>商品名</th>
     <th>税抜価格</th>
-    <th>ジャンル</th>
+    <th>ステータス</th>
     </tr>
   </head>
   <% @item.each do |item| %>
   <tbody>
     <tr>
     <td><%= item.id %></td>
-    <td><%= link_to item.title %></td>
+    <td><%= link_to item.name %></td>
     <td><%= item.introduction %></td>
     <td><%= item.price %></td>
-    <td></td>
     </tr>
   <% end %>
   </tbody>
 </table>
+<%= paginate @item %>
