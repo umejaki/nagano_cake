@@ -5,7 +5,7 @@ class Public::CustomersController < ApplicationController
   end
   
   def index
-    @item = Item.page(params[:page])
+    @item = Item.page(params[:page]).per(8)
   end 
   
 end

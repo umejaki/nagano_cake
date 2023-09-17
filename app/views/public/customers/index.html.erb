@@ -1,14 +1,17 @@
 <h3>商品一覧</h3>
-
-<table>
-  <% @item.each do |item| %>
-  <tbody>
-    <tr>
-    <td><%= item.id %>
-    <%= item.name %>
-    <%= item.introduction %>
-    <%= item.price %>
-    </td>
-    </tr>
-  <% end %>
-</table>
+ <div class="container">
+  <div class="row">
+   <div class="col">
+    <div class="d-flex">
+      <% @item.each do |item| %>
+       <div class="e-block flex-wrap">
+        <diV><%= image_tag item.get_image(200,200) %></diV>
+        <diV><%= item.name %></diV>
+        <diV><%= '¥' %><%= item.price %></diV>
+       </div>
+      <% end %>
+    </div>
+   </div>
+  </div>
+ </div>
+<%= paginate @item %>
