@@ -15,6 +15,7 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
 }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
+  
   scope module: :public do
     get '/customers' => 'customers#show'
     get '/items' => 'customers#index'
@@ -25,6 +26,6 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
 
   namespace :admin do
     resources :items
-    get '/customers' => 'customers#index'
+    resources :customers
   end
 end
