@@ -16,10 +16,14 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
   
+  
+  
   scope module: :public do
     get '/customers' => 'customers#show'
-    get '/items' => 'customers#index'
-     
+    get '/items' => 'items#index'
+    get '/items/:id' => 'items#show'
+    resources :cart_items
+    
   end
 
     
