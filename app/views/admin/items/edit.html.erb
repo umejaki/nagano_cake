@@ -1,25 +1,30 @@
-<h3>商品編集</h3>
-
-<table>
-  <tbody>
-    <%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
-    <tr>
-      <td>商品情報</td>
-      <td><%= f.file_field :image, accept: "image/*" %></td>
-    </tr>
-    <tr>
-      <td>商品名</td>
-      <td><%= f.text_field :name %></td>
-    </tr>
-    <tr>
-      <td>商品説明</td>
-      <td><%= f.text_area :introduction %></td>
-    </tr>
-    <tr>
-      <td>商品価格</td>
-      <td><%= f.text_field :price %> <%= '円' %></td>
-    </tr>
-      <td><%= f.submit "変更を保存", class:'btn btn-primary btn-success' %></td>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+ <div class="row">
+  <div class="col-md-12">
+   <h3>商品編集</h3>
+    <table>
+      <tbody>
+        <%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
+        <tr>
+          <td>商品情報</td>
+          <td><%= f.file_field :image, accept: "image/*" %></td>
+        </tr>
+        <tr>
+          <td>商品名</td>
+          <td><%= f.text_field :name %></td>
+        </tr>
+        <tr>
+          <td>商品説明</td>
+          <td><%= f.text_area :introduction %></td>
+        </tr>
+        <tr>
+          <td>商品価格</td>
+          <td><%= f.text_field :price %> <%= '円' %></td>
+        </tr>
+          <td><%= f.submit "変更を保存", class:'btn btn-primary btn-success' %></td>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+ </div>
+</div>

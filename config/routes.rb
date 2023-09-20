@@ -19,11 +19,10 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
   
   
   scope module: :public do
-    get '/customers' => 'customers#show'
-    get '/items' => 'items#index'
-    get '/items/:id' => 'items#show'
+    get '/customer' => 'customers#show'
+    get '/customer/edit' => 'customers#edit'
+    resources :items
     resources :cart_items
-    
   end
 
     

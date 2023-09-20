@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+   <div class="col-8">
+    <h3>商品一覧</h3>  
+     <div class="d-flex">
+       <% @item.each do |item| %>
+        <div class="e-block flex-wrap">
+         <diV>
+          <%= link_to item_path(item.id) do %>
+          <%= image_tag item.get_image(200,200) %>
+          <% end %>
+          </diV>
+         <diV><%= item.name %></diV>
+         <diV><%= '¥' %><%= item.price %></diV>
+        </div>
+       <% end %>
+     </div>
+   </div>
+  </div>
+ </div>
+<%= paginate @item %>
