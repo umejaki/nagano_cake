@@ -19,6 +19,7 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
   
   
   scope module: :public do
+    patch '/customer/edit' => 'customers#update'
     get '/customer' => 'customers#show'
     get '/customer/edit' => 'customers#edit'
     resources :items

@@ -24,10 +24,14 @@
             <ul class="navbar-nav ml-auto">
           　<% if customer_signed_in? %>
             <li class="nav-item">
-              <p>About</p>
+              <%= link_to about_path, class: 'nav-link text-dark' do %>
+                About
+              <% end %>
             </li>
             <li class="nav-item">
-              <p>商品一覧</p>
+              <%= link_to items_path, class: 'nav-link text-dark' do %>
+                商品一覧
+              <% end %>
             </li>
             <li class="nav-item">
               <p>カート</p>

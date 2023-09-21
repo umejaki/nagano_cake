@@ -2,7 +2,7 @@
  
   <h3><%= @customer.first_name %><%= @customer.last_name %><%= 'の会員情報編集' %></h3>
   <div class="row-16">
-   <%= form_with model: @customer, url: admin_customer_path(@customer.id) do |f| %>
+   <%= form_with model: @customer, url: customer_edit_path do |f| %>
    <table class="col-12">
     <body>
      <tr>
@@ -11,11 +11,11 @@
      </tr>
      <tr>
       <td><strong>氏名</strong></td>
-      <td><%= f.text_field :first_name %><%= '   '%><%= f.text_field :last_name %></td>
+      <td><%= f.text_field :first_name %><%= '　' %><%= f.text_field :last_name %></td>
      </tr>
      <tr>
       <td>フリガナ</td>
-      <td><%= f.text_field :first_name_kana %><%= '   '%><%= f.text_field :last_name_kana %></td>
+      <td><%= f.text_field :first_name_kana %><%= '　'%><%= f.text_field :last_name_kana %></td>
      </tr>
      <tr>
       <td><strong>郵便番号</strong></td>

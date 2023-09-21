@@ -1,9 +1,11 @@
 class Public::CartItemsController < ApplicationController
   
   def create
+    
   end
   
   def index
+    @items = Items.all
   end 
   
   private
