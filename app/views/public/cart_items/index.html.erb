@@ -2,7 +2,38 @@
  <div class="row">
   <h4>ショッピングカート</h4>
    <div class="col-md-12">
-    <% @items.each do |items| 
+    <table>
+     <thead>
+      <tr>
+       <td></td>
+      </tr>
+      <tr>
+       <th class="col-md-4">商品名</th>
+       <th class="col-md-2">単価(税込み)</th>
+       <th class="col-md-2">数量</th>
+       <th class="col-md-2">小計</th>
+       <th class="col-md-2"></th>
+      </tr>
+     </thead>
+      <tbody>
+       <% @cart_item.each do |cart_item| %>
+      <tr>
+       <td class="col-md-4"><%= cart_item.item.name %></td>
+       <td class="col-md-2"><%= cart_item.item.with_tax_price%></td>
+       <td class="col-md-2"><%= cart_item.amount %></td>
+       <td class="col-md-2"><%= cart_item.subtotal%></td>
+       <td class="col-md-2"><%= link_to "削除", cart_item ,  method: :delete , "data-confirm" => "商品を削除しますか？" , class: "btn btn-danger"%></td>
+      </tr>
+       <% @sum += cart_item.subtotal %>
+      <% end %>
+      <tr>
+       <td class='col-8'><%= link_to '買い物を続ける', items_path %></td>
+       <td class="col-md-2"><%= '合計金額' %></td>
+       <td class="col-md-2"><%= @sum %></td>
+      </tr>
+     </tbody>
+     
+    </table>
    </div>
  </div>
 </div>
