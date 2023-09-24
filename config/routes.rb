@@ -22,8 +22,8 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
     patch '/customer/edit' => 'customers#update'
     get '/customer' => 'customers#show'
     get '/customer/edit' => 'customers#edit'
-    delete '/cart_items/destroy_all' => 'customers#destroy'
     resources :items
+    delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
     resources :cart_items
   end
 
