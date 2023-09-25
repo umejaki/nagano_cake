@@ -8,5 +8,6 @@ class Customer < ApplicationRecord
          devise :validatable, password_length: 8..20
   
   has_many :cart_items
+  has_many :orders
   
 end
