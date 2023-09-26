@@ -3,7 +3,7 @@
   <h4>注文情報</h4>
    <div class="col-12">
     <div>
-     <h4>支払方法</h4>
+     <p><strong>支払方法</strong><p>
       <%= form_with model: @order, url: orders_confirm_path do |f| %>
        <%= '　' %><%= f.radio_button :payment_methods, "credit_card" %>
        <%= f.label :payment_method_credit_card, "クレジットカード" %><br>
@@ -11,13 +11,56 @@
        <%= f.label :payment_method_transfer, "銀行振込" %>
       <% end %>
     </div>
-    <div>
-     <h4>お届け先</h4>
-     <%= form_with model: @customer do |f| %>
-     <%= '　' %><%= f.radio_button :address, "adress" %>
-     <%= f.label :address_adress, "ご自身の住所" %>
-     <% end %>
-    </div>
+     <div>
+      <p><strong>お届け先</strong></p>
+      <%= form_with model: @customer do |f| %>
+      <div>
+       <%= '　' %><%= f.radio_button :address, "adress" %>
+       <%= f.label :address_adress, "ご自身の住所" %>
+      </div>
+      <div>
+       <%= '　' %><%= '〒' %><%= @customer.postal_code %><%= @customer.address %></div>
+      <div>
+       <%= '　' %><%= @customer.first_name %><%= @customer.last_name %>
+      </div>
+      <% end %>
+     </div>
+     <div>
+      <!--<p><strong>登録済住所から選択</strong></p>-->
+      <%#= form_with model: @customer do |f| %>
+       <%#= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %>
+      <%# end %>
+     </div>
+     <div>
+      <%= form_with model: @customer do |f| %>
+      <div>
+       <%= '　' %><%= f.radio_button :address, "adress" %>
+       <%= f.label :address_adress, "新しいお届け先" %>
+       </div>
+       <table>
+        <body calss'align-items: center' >
+         <tr>
+          <td>
+           <%= '　　　' %><%= f.label :郵便番号（ハイフンなし） %>
+           <%= '　　' %><%= f.text_field :postal_code %>
+           </td>
+         </tr>
+         <tr>
+          <td>
+          <%= '　　　' %><%= f.label :住所 %>
+          <%= '　　　　　　　　　　 　　' %><%= f.text_field :address %>
+          </td>
+         </tr>
+         <tr>
+          <td>
+          <%= '　　　' %><%= f.label :宛名 %>
+          <%= '　　　　　　　　　　　　' %><%= f.text_field :name %>
+          </td>
+         </tr>
+        </body>
+       </table>
+      <% end %>
+     </div>
    </div>
  </div>
 </div>
