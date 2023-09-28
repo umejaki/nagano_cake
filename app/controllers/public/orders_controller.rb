@@ -5,17 +5,17 @@ class Public::OrdersController < ApplicationController
     @customer = current_customer
   end 
   
-  def create
-    @order = Order.new(order_params)
-    @order_id = customers.id
-    @order.save
-    redirect_to orders_confirm_path
+  def confirm
+   @order = Order.new(order_params)
+    @cart_item = CartItem.all
+    @sum = 0
+   render :confirm
   end
   
-   private
-
+  private
   def order_params
-    params.require(:order).permit(:customers_id, :name, :postal_code, :address, :postage, :payment_methods, :payment_amount)
+   
+    params.require(:order).permit(:payment_method)
+   
   end
-  
 end
