@@ -22,7 +22,17 @@
          </body>
          <% end %>
        </table>
-     </div>
+       <div>
+        <%= '支払い方法' %>
+        <%= @order.payment_method %>
+        </div>
+       <div>
+          <strong><%= 'お届け先' %></strong>
+          <%= @order.postal_code %>
+          <%= @order.address %>
+          <%= @order.name %>
+         </div>
+       </div>
    </div>
  </div>
 </div>

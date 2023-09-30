@@ -5,17 +5,17 @@
     <div>
      <p><strong>支払方法</strong><p>
       <%= form_with model: @order, url: orders_confirm_path, method: :post do |f| %>
-       <%= '　' %><%= f.radio_button :payment_methods, "credit_card" %>
-       <%= f.label :payment_method_credit_card, "クレジットカード" %><br>
-       <%= '　' %><%= f.radio_button :payment_methods, "transfer" %>
-       <%= f.label :payment_method_transfer, "銀行振込" %>
+       <%= '　' %><%= f.radio_button :payment_method, "credit_card" %>
+       <%= f.label :payment_method, "クレジットカード" %><br>
+       <%= '　' %><%= f.radio_button :payment_method, "transfer" %>
+       <%= f.label :payment_method, "銀行振込" %>
       
     </div>
      <div>
       <p><strong>お届け先</strong></p>
       <div>
-       <%= '　' %><%= f.radio_button :address, "current_customer_adress" %>
-       <%= f.label :address_adress, "ご自身の住所" %>
+       <%= '　' %><%= radio_button_tag :select_address, "0" %>
+       <%= f.label :select_address, "ご自身の住所" %>
       </div>
       <div>
        <%= '　' %><%= '〒' %><%= @customer.postal_code %><%= @customer.address %></div>
@@ -31,8 +31,8 @@
      </div>
      <div>
       <div>
-       <%= '　' %><%= f.radio_button :address, "new_adress" %>
-       <%= f.label :address_adress, "新しいお届け先" %>
+       <%= '　' %><%= radio_button_tag :select_address, "2" %>
+       <%= f.label :select_address, "新しいお届け先" %>
        </div>
        <table>
         <body calss'align-items: center' >
