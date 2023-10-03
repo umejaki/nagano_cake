@@ -1,0 +1,26 @@
+<div class='container'>
+ <h4>注文履歴詳細</h4>
+  <table>
+   <body>
+    <tr>
+      <td class='col-2'><strong>購入者<strong></td>
+      <td class='col-6'><%= @customer.first_name %><%= @customer.last_name %></td>
+    </tr>
+    <tr>
+      <td class='col-2'><strong>注文日</strong></td>
+      <td class='col-6'><%= @order.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+    </tr>
+    <tr>
+      <td class='col-2'><strong>発送先</strong></td>
+      <td class='col-6'><%= '〒' %><%= @order.postal_code %><%= @order.address %><%= @order.name %></td>
+    </tr>
+    <tr>
+     <td class='col-2'><strong>支払方法</strong></td>
+     <td class='col-6'><%= @order.payment_method_i18n %></td>
+     </tr>
+     <tr>
+      
+     </tr>
+   </body>
+  </table>
+</div>
