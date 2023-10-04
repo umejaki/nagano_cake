@@ -33,12 +33,8 @@
         <td><%= @customer.email %></td>
       </tr>
       <tr>
-        <td><h4>配達先</h4></td>
-        <td><%= "一覧を見る" %></td>
-      </tr>
-      <tr>
-        <td><h4>注文履歴</h4></td>
-        <td><%= "一覧を見る" %></td>
+        <td>注文履歴</td>
+        <td><%= link_to "一覧を見る", orders_path %></td>
      <tr>
      </tbody>
     </table>

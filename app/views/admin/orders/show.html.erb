@@ -18,9 +18,24 @@
      <td class='col-2'><strong>支払方法</strong></td>
      <td class='col-6'><%= @order.payment_method_i18n %></td>
      </tr>
-     <tr>
-      
-     </tr>
+      <table>
+       <tr>
+        <head>
+         <th class='col-2'>商品名</th>
+         <th class='col-2'>単価(税込)</th>
+         <th class='col-2'>数量</th>
+         <th class='col-2'>小計</th>
+        </head>
+       </tr>
+       <tr>
+        <body>
+         <td><%= @order_product.item.name %></td>
+         <td><%= @order_product.item.price %></td>
+         <td><%= @order_product.amount %></td>
+         <td><%= @order_product.amount * (@order_product.price * 1.1).floor %></td>
+        </body>
+       </tr>
+      </table>
    </body>
   </table>
 </div>

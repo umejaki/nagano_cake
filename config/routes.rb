@@ -22,22 +22,20 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
     patch '/customer/edit' => 'customers#update'
     get '/customer' => 'customers#show'
     get '/customer/edit' => 'customers#edit'
-    resources :items
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
-    resources :cart_items
     get '/orders/new' => 'orders#new'
     post '/orders/confirm' => 'orders#confirm'
     get '/orders/complete' => 'orders#complete'
-    post '/orders' => 'orders#create'
-    get '/orders' => 'orders#index'
-    get '/orders' => 'orders#show'
+    resources :orders
+    resources :items
+    resources :cart_items
   end
 
     
 
   namespace :admin do
     get '/' => 'homes#top'
-    get '/orders/:id' =>'orders#show'
+    resources :orders
     resources :items
     resources :customers
   end

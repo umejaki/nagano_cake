@@ -6,9 +6,9 @@
         
   <%= image_tag @item.get_image(150,100) %>
   <div class="d-flex flex-column">
-  <div><%= @item.name %></div>
-  <div><%= @item.introduction %></div>
-  <div><%= @item.price %>)<%= '円' %></div>
+  <div><%= '商品名' %><%= @item.name %></div>
+  <div><%= '商品説明' %><%= @item.introduction %></div>
+  <div><%= '税込価格' %><%= '税抜価格' %><%= (@item.price * 1.1).floor %>(<%= @item.price %>)<%= '円' %></div>
   <div>
    <%= form_with model: @cart_item_new, url: cart_items_path,method: :post do |f| %>
     <%= f.hidden_field :item_id, value: @item.id %>
