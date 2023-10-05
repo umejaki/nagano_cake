@@ -28,14 +28,29 @@
         </head>
        </tr>
        <tr>
+        <% @order_products.each do |p| %>
         <body>
-         <td><%= @order_product.item.name %></td>
-         <td><%= @order_product.item.price %></td>
-         <td><%= @order_product.amount %></td>
-         <td><%= @order_product.amount * (@order_product.price * 1.1).floor %></td>
-        </body>
+         <td class='col-2'><%= p.item.name %></td>
+         <td class='col-2'><%= p.item.price %></td>
+         <td class='col-2'><%= p.amount %></td>
+         <td class='col-2'><%= p.amount * (p.price * 1.1).floor %></td>
+         <% end %>
+        <tr>
+         <tr>
+          <td class='col-2'><strong><%= '商品合計' %></strong><%= @order.payment_amount %><%= '円' %></td>
+         <tr>
+         <tr>
+          <td class='col-2'><strong><%= '送料' %></strong><%= @order.postage %><%= '円' %></td>
+         </tr>
+         <tr>
+          <td class='col-2'><strong><%= '請求金額合計' %></strong><%= @order.payment_amount + @order.postage %><%= '円' %></td>
+         </tr>
        </tr>
+       </body>
       </table>
    </body>
   </table>
+  <div></div>
+  <div></div>
+  <div></div>
 </div>
