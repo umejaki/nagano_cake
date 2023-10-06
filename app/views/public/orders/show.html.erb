@@ -1,3 +1,35 @@
 <div class='container'>
   <h4>注文履歴詳細</h4>
+   <div class="d-flex">
+    <div class='row-8'>
+     <div class="col">
+      <table>
+        <body>
+         <tr>
+          <td><strong>注文情報</strong></td>
+         </tr>
+          <% @orders.each do |order| %>
+         <tr>
+           <td>注文日</td>
+           <td><%= order.created_at.strftime("%Y/%m/%d") %></td>
+         </tr>
+         <tr>
+           <td>発送先</td>
+           <td><%= '〒' %><%= order.postal_code %><%= order.address %></td>
+         </tr>
+         <% end %>
+        </body>
+      </table>
+     </div>
+    </div>
+    <div class='row-4'>
+     <div class="col">
+      <table>
+        <body>
+          <td><strong>請求情報</strong></td>
+        </body>
+      </table>
+     </div>
+    </div>
+   </div>
 </div>

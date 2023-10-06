@@ -27,6 +27,11 @@ class Public::OrdersController < ApplicationController
     @orders = @customer.orders
   end 
   
+  def show
+    @customer = current_customer
+    @orders = @customer.orders
+  end 
+  
   def create
     cart_items = current_customer.cart_items.all
     @order = Order.new(order_params)
