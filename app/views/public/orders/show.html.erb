@@ -3,30 +3,46 @@
    <div class="d-flex">
     <div class='row-8'>
      <div class="col">
-      <table>
+      <table class="table table-bordered">
         <body>
          <tr>
           <td><strong>注文情報</strong></td>
          </tr>
-          <% @orders.each do |order| %>
          <tr>
            <td>注文日</td>
-           <td><%= order.created_at.strftime("%Y/%m/%d") %></td>
+           <td><%= @order.created_at.strftime("%Y/%m/%d") %></td>
          </tr>
          <tr>
            <td>発送先</td>
-           <td><%= '〒' %><%= order.postal_code %><%= order.address %></td>
+           <td><%= '〒' %><%= @order.postal_code %><br><%= @order.address %><br><%= @order.customer.first_name %><%= @order.customer.last_name %></td>
          </tr>
-         <% end %>
+         <tr>
+          <td>支払方法</td>
+          <td><%= @order.payment_method_i18n %></td>
+         </tr>
         </body>
       </table>
      </div>
     </div>
     <div class='row-4'>
      <div class="col">
-      <table>
+      <table class="table table-bordered">
         <body>
+         <tr>
           <td><strong>請求情報</strong></td>
+         </tr>
+         <tr>
+          <td>商品合計</td>
+          <td><%= @order.payment_amount %></td>
+         </tr>
+          <tr>
+           <td>配送料</td>
+           <td><%= @order.postage %></td>
+          </tr>
+          <tr>
+           <td>ご請求額</td>
+           <td><%= @order.payment_amount + @order.postage %></td>
+          </tr>
         </body>
       </table>
      </div>

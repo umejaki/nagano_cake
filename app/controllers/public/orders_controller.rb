@@ -29,7 +29,7 @@ class Public::OrdersController < ApplicationController
   
   def show
     @customer = current_customer
-    @orders = @customer.orders
+    @order = Order.find(params[:id])
   end 
   
   def create
