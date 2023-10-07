@@ -31,7 +31,7 @@
         <% @order_products.each do |p| %>
         <body>
          <td class='col-2'><%= p.item.name %></td>
-         <td class='col-2'><%= p.item.price %></td>
+         <td class='col-2'><%= (p.price * 1.1).floor %></td>
          <td class='col-2'><%= p.amount %></td>
          <td class='col-2'><%= p.amount * (p.price * 1.1).floor %></td>
          <% end %>

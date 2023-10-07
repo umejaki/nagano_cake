@@ -2,14 +2,11 @@
  <div class="row">
   <h4>ショッピングカート</h4>
    <div class="col-12">
-    <table>
+    <div>　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<%= link_to "カートを空にする", cart_items_destroy_all_path , method: :delete , "data-confirm" => "商品を削除しますか？" , class: "btn btn-danger"%></div>
+    <table class="table table-bordered">
      <thead>
+      </tr>
       <tr>
-       <td class="col-6"></td>
-       <td class='col-2'><%= link_to "カートを空にする", cart_items_destroy_all_path , method: :delete , "data-confirm" => "商品を削除しますか？" , class: "btn btn-danger"%></td>
-      </tr>
-      </tr>
-      <tr class="table table-bordered">
        <th class="col-2">商品名</th>
        <th class="col-1">単価(税込み)</th>
        <th class="col-2">数量</th>
@@ -33,16 +30,11 @@
       </tr>
        <% @sum += cart_item.subtotal %>
       <% end %>
-      <tr>
-       <td class='col-2'><%= link_to '買い物を続ける', items_path, class: "btn btn-primary" %></td>
-       <td class="col-1"><%= '合計金額' %></td>
-       <td class="col-1"><%= @sum %></td>
-      </tr>
-      <tr class='col-12'>
-       <td class="text-center"><%= link_to '注文情報入力に進む',orders_new_path,class: "btn btn-success" %></td>
-      </tr>
-     </tbody>
+      </tbody>
     </table>
+       <div>　　　　　　　　　　　　　　　　　　　　<%= link_to '買い物を続ける', items_path, class: "btn btn-primary" %></div>
+       <div>　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<%= '合計金額' %>　　<%= @sum %><%= "円" %></div>
+       <div  class="text-center"><%= link_to '注文情報入力に進む',orders_new_path,class: "btn btn-success" %></div>
    </div>
  </div>
 </div>

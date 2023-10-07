@@ -19,6 +19,8 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
   
   
   scope module: :public do
+    patch '/customers/withdraw' => 'customers#withdraw'
+    get '/customers/unsubscribe' => 'customers#unsubscribe'
     patch '/customer/edit' => 'customers#update'
     get '/customer' => 'customers#show'
     get '/customer/edit' => 'customers#edit'

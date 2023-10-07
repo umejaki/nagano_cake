@@ -8,6 +8,16 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
   end
   
+  def unsubscribe
+    @customer = current_customer
+  end
+  
+  def withdraw
+    @customer = Customer.find(params[:id])
+    @customer.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
+  end 
   
    def update
     @customer = current_customer
