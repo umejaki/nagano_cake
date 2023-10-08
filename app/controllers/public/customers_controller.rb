@@ -13,7 +13,7 @@ class Public::CustomersController < ApplicationController
   end
   
   def withdraw
-    @customer = Customer.find(params[:id])
+    @customer = Customer.find(current_customer.id)
     @customer.update(is_deleted: true)
     reset_session
     redirect_to root_path
@@ -28,7 +28,7 @@ class Public::CustomersController < ApplicationController
      protected
     
     def customer_params
-      params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :postal_code, :address, :telephone_number, :is_deleted)
+      params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :postal_code, :address, :telephone_number, :is_active)
     end
     
   

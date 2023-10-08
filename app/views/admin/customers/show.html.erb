@@ -32,8 +32,16 @@
         <td><%= @customer.email %></td>
       </tr>
       <tr>
+        <td>会員ステータス</td>
+        <% if @customer.is_deleted %>
+                 <td>退会</td>
+                <% else %>
+                 <td>有効</td>
+          <% end %>
+      </tr>
+      <tr>
         <td></td>
-        <td><%= link_to "編集する",edit_admin_customer_path, class:'btn btn-success' %><%= link_to '注文一覧を見る', class:'btn btn-primary' %></td>
+        <td><%= link_to "編集する",edit_admin_customer_path, class:'btn btn-success' %><%= link_to '注文履歴一覧を見る',admin_path, class:'btn btn-primary' %></td>
       </tr>
     </body>
  </div>
