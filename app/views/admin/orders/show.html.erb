@@ -27,23 +27,25 @@
          <th class='col-2'>小計</th>
         </head>
        </tr>
-       <tr>
-        <% @order_products.each do |p| %>
         <body>
+         <% @order_products.each do |p| %>
+         <tr>
+         
          <td class='col-2'><%= p.item.name %></td>
          <td class='col-2'><%= (p.price * 1.1).floor %></td>
          <td class='col-2'><%= p.amount %></td>
          <td class='col-2'><%= p.amount * (p.price * 1.1).floor %></td>
-         <% end %>
+         
         <tr>
+         <% end %>
          <tr>
-          <td class='col-2'><strong><%= '商品合計' %></strong><%= @order.payment_amount %><%= '円' %></td>
+          <td><strong><%= '商品合計' %></strong><%= @order.payment_amount %><%= '円' %></td>
          <tr>
          <tr>
-          <td class='col-2'><strong><%= '送料' %></strong><%= @order.postage %><%= '円' %></td>
+          <td><strong><%= '送料' %></strong><%= @order.postage %><%= '円' %></td>
          </tr>
          <tr>
-          <td class='col-2'><strong><%= '請求金額合計' %></strong><%= @order.payment_amount + @order.postage %><%= '円' %></td>
+          <td><strong><%= '請求金額合計' %></strong><%= @order.payment_amount + @order.postage %><%= '円' %></td>
          </tr>
        </tr>
        </body>
