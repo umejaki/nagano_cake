@@ -27,10 +27,10 @@ class Public::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
   
-  
+  private
   
    def after_sign_in_path_for(resource)
-    customer_path
+    root_path
    end
    
    def after_sign_out_path_for(resource)
@@ -49,7 +49,7 @@ def customer_state
   # アカウントを取得できなかった場合、このメソッドを終了する
   return if !@customer
   # 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
-  if @customer.valid_password?(params[:customer][:password]) && (@customer.is_deleted == false)
+  if @customer.valid_password?(params[:customer][:password]) && (@customer.is_deleted != false)
     redirect_to new_customer_registration_path
   else
     # 【処理内容3】
