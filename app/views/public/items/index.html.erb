@@ -4,7 +4,7 @@
     <h3>商品一覧</h3>  
      <div class="d-flex">
        <% @item.each do |item| %>
-        <div class="e-block flex-wrap">
+        <div class="text-break">
          <diV>
           <%= link_to item_path(item.id) do %>
           <%= image_tag item.get_image(200,200) %>
