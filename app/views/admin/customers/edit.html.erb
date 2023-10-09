@@ -1,7 +1,7 @@
 <div class="container">
   <h5><%= @customer.first_name %><%= @customer.last_name %>さんの会員情報編集</h5>
      <h3>会員ID  <%= @customer.id %></h3>
-      <%= form_with url: admin_order_path do |f| %>
+      <%= form_with model: @customer, url: admin_customer_path do |f| %>
         <h3>氏名　　　　　　　<%= f.text_field :first_name %>　　<%= f.text_field :last_name %></h3>
         <h3>フリガナ　　　　　<%= f.text_field :first_name_kana %>　　<%= f.text_field :last_name_kana %></h3>
         <h3>郵便番号　　　　　<%= f.text_field :postal_code %></h3>
@@ -14,6 +14,6 @@
           <%= '　' %><%= f.radio_button :is_deleted, "退会" %>
           <%= f.label :is_deleted, "退会" %>
         </h3>
-      <%= f.submit '変更を保存する' class: "btn btn-success" %>
+      <%= f.submit '変更を保存する', class: 'btn btn-primary' %>
       <% end %>
 </div>
