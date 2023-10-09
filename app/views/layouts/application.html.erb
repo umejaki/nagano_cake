@@ -43,6 +43,27 @@
                  ログアウト
                <% end %>
             </li>
+            <% elsif admin_signed_in? %>
+            <li class="nav-item">
+              <%= link_to admin_items_path, class: 'nav-link text-dark' do %>
+                商品一覧
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to admin_customers_path, class: 'nav-link text-dark' do %>
+                会員一覧
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to admin_orders_path, class: 'nav-link text-dark' do %>
+                 注文履歴一覧
+               <% end %>
+            </li>
+            <li class="nav-item">
+               <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' do %>
+                 ログアウト
+               <% end %>
+            </li>
             <% else %>
             <li class="nav-item">
                <%= link_to about_path, class: 'nav-link text-dark' do %>
