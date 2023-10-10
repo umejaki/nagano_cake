@@ -1,21 +1,20 @@
 <div class="container">
-  <div class="row">
-   <div class="col-8">
-    <h3>商品一覧</h3>  
-     <div class="d-flex">
-       <% @item.each do |item| %>
-        <div class="text-break">
-         <diV>
-          <%= link_to item_path(item.id) do %>
-          <%= image_tag item.get_image(200,200) %>
-          <% end %>
-          </diV>
-         <diV><%= item.name %></diV>
-         <diV><%= '¥' %><%= item.price %></diV>
-        </div>
-       <% end %>
-     </div>
+ <h3>商品一覧</h3>  
+ <div class="row">
+  <% @item.each do |item| %>
+   <div class='col-3'>
+    <div>
+    <%= link_to item_path(item.id) do %>
+     <%= image_tag item.get_image(200,200) %>
+    <% end %>
    </div>
-  </div>
+   <diV><%= item.name %></diV>
+   <diV><%= '¥' %><%= item.price %></diV>
+   </div>
+  <% end %>
  </div>
-<%= paginate @item %>
+ <div class='row'>
+  <div class='col-md-5'></div>
+  <div class='col-md-7'><%= paginate @item %></div>
+ </div>
+</div>
