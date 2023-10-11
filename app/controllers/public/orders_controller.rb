@@ -3,6 +3,10 @@ class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
     @customer = current_customer
+    cart_item = @customer.cart_items
+   if cart_item == []
+     redirect_to cart_items_path
+   end 
   end 
   
   def confirm

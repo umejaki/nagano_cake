@@ -34,7 +34,11 @@
     </table>
        <div>　　　　　　　　　　　　　　　　　　　　<%= link_to '買い物を続ける', items_path, class: "btn btn-primary" %></div>
        <div>　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<%= '合計金額' %>　　<%= @sum %><%= "円" %></div>
-       <div  class="text-center"><%= link_to '注文情報入力に進む',orders_new_path,class: "btn btn-success" %></div>
+       <div  class="text-center">
+        <% if @cart_item != [] %>
+        <%= link_to '注文情報入力に進む',orders_new_path,class: "btn btn-success" %>
+        <% end %>
+       </div>
    </div>
  </div>
 </div>
