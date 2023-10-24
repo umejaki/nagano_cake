@@ -16,7 +16,7 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
   
-  
+  get "search" => "searches#search"
   
   scope module: :public do
     patch '/customers/withdraw' => 'customers#withdraw'
